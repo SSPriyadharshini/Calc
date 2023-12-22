@@ -26,111 +26,152 @@ Publish the website in the given URL.
 
 ## PROGRAM :
 ```
-<!-- Create a simple Program to build the Calculator in JavaScript using with HTML and CSS web languages. -->  
-<!DOCTYPE html>  
-<html lang = "en">  
-<head>  
-<title> JavaScript Calculator </title>  
-  
-<style>  
-h1 {  
-    text-align: center;  
-    padding: 23px;  
-    background-color: darkblue;  
-    color: white;  
-    }  
-  
-#clear{  
-width: 270px;  
-border: 3px solid gray;  
-    border-radius: 3px;  
-    padding: 20px;  
-    background-color:pink;  
-}  
-  
-.formstyle  
-{  
-width: 300px;  
-height: 530px;  
-margin: auto;  
-border: 3px solid skyblue;  
-border-radius: 5px;  
-padding: 20px;  
-}  
-  
-  
-  
-input  
-{  
-width: 20px;  
-background-color: purple;  
-color: white;  
-border: 3px solid gray;  
-    border-radius: 5px;  
-    padding: 26px;  
-    margin: 5px;  
-    font-size: 15px;  
-}  
-  
-  
-#calc{  
-width: 250px;  
-border: 5px solid black;  
-    border-radius: 3px;  
-    padding: 20px;  
-    margin: auto;  
-}  
-  
-</style>    
-</head>  
-<body>  
-<h1> Priyadharshini Calculator </h1>  
-<h2 align="center"> Register Number (23014035)</h2>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Calculator</title>
 
-<div class= "formstyle">  
-<form name = "form1">  
-      
-    <!-- This input box shows the button pressed by the user in calculator. -->  
-  <input id = "calc" type ="text" name = "answer"> <br> <br>  
-  <!-- Display the calculator button on the screen. -->  
-  <!-- onclick() function display the number prsses by the user. -->  
-  <input type = "button" value = "1" onclick = "form1.answer.value += '1' ">  
-  <input type = "button" value = "2" onclick = "form1.answer.value += '2' ">  
-  <input type = "button" value = "3" onclick = "form1.answer.value += '3' ">  
-   <input type = "button" value = "+" onclick = "form1.answer.value += '+' ">  
-  <br> <br>  
-    
-  <input type = "button" value = "4" onclick = "form1.answer.value += '4' ">  
-  <input type = "button" value = "5" onclick = "form1.answer.value += '5' ">  
-  <input type = "button" value = "6" onclick = "form1.answer.value += '6' ">  
-  <input type = "button" value = "-" onclick = "form1.answer.value += '-' ">  
-  <br> <br>  
-    
-  <input type = "button" value = "7" onclick = "form1.answer.value += '7' ">  
-  <input type = "button" value = "8" onclick = "form1.answer.value += '8' ">  
-  <input type = "button" value = "9" onclick = "form1.answer.value += '9' ">  
-  <input type = "button" value = "*" onclick = "form1.answer.value += '*' ">  
-  <br> <br>  
-    
-    
-  <input type = "button" value = "/" onclick = "form1.answer.value += '/' ">  
-  <input type = "button" value = "0" onclick = "form1.answer.value += '0' ">  
-    <input type = "button" value = "." onclick = "form1.answer.value += '.' ">  
-    <!-- When we click on the '=' button, the onclick() shows the sum results on the calculator screen. -->  
-  <input type = "button" value = "=" onclick = "form1.answer.value = eval(form1.answer.value) ">  
-  <br>   
-  <!-- Display the Cancel button and erase all data entered by the user. -->  
-  <input type = "button" value = "Clear All" onclick = "form1.answer.value = ' ' " id= "clear" >  
-  <br>   
-    
-</form>  
-</div>  
-</body>  
+        <script>
+        function calculate(args)
+        {
+            res = document.getElementById("result");
+            expression = res.innerText;
+            cmd = args.srcElement.innerText;
+            if(cmd == "=")
+            {
+                expression = "" + eval(expression)
+            }
+            else if(cmd == "C")
+            {
+                expression=""
+            }
+            else if(cmd == "DEL")
+            {
+                expression = expression.slice(0, -1);
+
+            }
+            else if(cmd == "√")
+            {
+                expression = "" + Math.sqrt(eval(expression));
+            }
+            else if(cmd == "%")
+            {
+                expression = expression % 1;
+            }
+            else if(cmd == "log")
+             {
+        expression = Math.log10(expression);
+           }
+       
+            else{
+                expression = expression + cmd;
+            }
+            res.innerText = expression;
+            
+
+        }
+         
+        </script>
+
+        <style>
+          
+            .calculator-container {
+                width: 400px;
+                background-color:plum;
+                margin: 0 auto; 
+                margin-top: 160px;
+                text-align: center;
+                
+            }
+
+           
+            button {
+                width: 50px;
+                height: 50px;
+                margin: 10px; 
+                font-size: 20px; 
+                
+                background-color:yellow; 
+                color: black; 
+                border: none;
+            }
+
+          
+            #result {
+                
+       background-color:violet;
+    text-align: right;
+    padding-right: 50px;
+    font-size: 20px;
+    margin-bottom: 20px; 
+    border: solid black 0.5px;
+    color: black;
+    width: 348px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+            }
+            h1 {
+                padding-top: 10px;
+                color:black;
+                font-size: 50px;
+            }
+            .redd {
+                background-color: yellow;
+            }
+            .bluee {
+                
+                background-color: lavender;
+            }
+            body {
+                background-color: lavender;
+            }
+           .bottomdiv{
+            	    color:purple;
+            	    text-align: center;
+                    position:relative;
+           }
+
+        </style>
+
+    </head>
+<body>
+    <div class="bottomdiv">
+    <h1> Priyadharshini CALCULATOR</h1>
+<h1>Register no : 212223040156</h1>
+	 
+    <div class="calculator-container">
+        
+        <div id="result">0</div>
+        <button onclick="calculate(event);">7</button>
+        <button onclick="calculate(event);">8</button>
+        <button onclick="calculate(event);">9</button>
+        <button class="bluee"  onclick="calculate(event);">/</button>
+        <button class="bluee"  onclick="calculate(event);"> DEL </button><br>
+        <button onclick="calculate(event);">4</button>
+        <button onclick="calculate(event);">5</button>
+        <button onclick="calculate(event);">6</button>
+        <button class="bluee"  onclick="calculate(event);">*</button>
+        <button class="bluee"  onclick="calculate(event);">% </button><br>
+        <button onclick="calculate(event);">1</button>
+        <button onclick="calculate(event);">2</button>
+        <button onclick="calculate(event);">3</button>
+        <button class="bluee"  onclick="calculate(event);">-</button>
+        <button class="bluee"  onclick="calculate(event);">log</button><br>
+        <button onclick="calculate(event);">0</button>
+        <button onclick="calculate(event);">.</button>
+        <button class="redd" onclick="calculate(event);">C</button>
+        <button class="bluee"  onclick="calculate(event);">+</button>
+        <button class="bluee" onclick="calculate(event);">=</button><br>
+    </div>
+    </body>
 </html>
 ```
 ## OUTPUT:
-![Alt text](<Screenshot (22).png>)
-![Alt text](<Screenshot (23).png>)
+![Alt text](<Screenshot (25).png>)
+![Alt text](<Screenshot (26).png>)
 
 ## RESULT:
 The program for designing a standard calculator using HTML and CSS is executed successfully.
